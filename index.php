@@ -7,9 +7,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Feed de Notícias</title>
+
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  
 </head>
+
 <body class="container">
   <h1 class="text-center py-4">FEED de notícias</h1>
 
@@ -17,39 +24,40 @@
     <i class="bi bi-plus-circle"></i> Adicionar nova notícia
   </button>
 
-  <table class="table table-bordered">
-    <thead class="text-center">
-      <tr>
-        <th>#</th>
-        <th>Imagem</th>
-        <th>Título</th>
-        <th>Descrição</th>
-        <th style="min-width: 150px;">Data</th>
-        <th>Ações</th>
-      </tr>
+ 
     </thead>
     <tbody>
-      <?php
-        $sql = "SELECT * FROM alunos ORDER BY id DESC";
-        $rows = $con->query($sql);
-        if ($rows->num_rows > 0) {
-          while ($row = $rows->fetch_assoc()) {
-            echo '<tr class="text-center">
-              <td>' . $row['id'] . '</td>
-              <td><img src="' . ($row['imagem']) . '" width="100"></td>
-              <td>' . ($row['titulo']) . '</td>
-              <td>' . ($row['descricao']) . '</td>
-              <td>' . date('Y-m-d', strtotime($row['data_criacao'])) . '</td>
+    <div class="row">
+  <?php
+    $sql = "SELECT * FROM alunos ORDER BY id DESC";
+    $rows = $con->query($sql);
+    if ($rows->num_rows > 0) {
+      while ($row = $rows->fetch_assoc()) {
+        echo '
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="bg-white rounded-3 border border-light shadow-sm h-100 d-flex flex-column">
+              <img src="' . ($row['imagem']) . '" 
+                   alt="' . ($row['titulo']) . '" 
+                   class="img-fluid rounded-top" 
+                   style="height: 200px; object-fit: cover; width: 100%;">
 
-              <td>
-                <a class="btn btn-danger" href="actions/deletar.php?id=' . $row['id'] . '"><i class="bi bi-trash"></i></a>
-                
-                <a class="btn btn-primary" href="actions/editar.php?id=' . $row['id'] . '"><i class="bi bi-pencil"></i></a>
-              </td>
-            </tr>';
-          }
-        }
-      ?>
+              <div class="p-3 d-flex flex-column flex-grow-1">
+                <h2 class="h5 fw-bold">' . ($row['titulo']) . '</h2>
+                <p class="text-secondary">' . ($row['descricao']) . '</p>
+                <p class="text-muted small mt-auto">' . date('Y-m-d', strtotime($row['data_criacao'])) . '</p>
+                <div class="mt-2 d-flex gap-2">
+                  <a class="btn btn-danger btn-sm" href="actions/deletar.php?id=' . $row['id'] . '"><i class="bi bi-trash"></i></a>
+                  <a class="btn btn-primary btn-sm" href="actions/editar.php?id=' . $row['id'] . '"><i class="bi bi-pencil"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ';
+      }
+    }
+  ?>
+</div>
+
     </tbody>
   </table>
 
@@ -87,6 +95,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </form>
 
