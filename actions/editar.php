@@ -49,7 +49,7 @@ $rows = $con->query($sql);
       </div>
       <div class="mb-3 form-floating">
         <input name="data_criacao"  value="<?= Date($data_criacao);?>" type="date" class="form-control" id="exampleFormControlInput3" placeholder=""required>
-        <label for="exampleFormControlInput3">Data</label>
+        <label for="exampleFormControlInput3">Dat</label>
       </div>
       </div>
       <div class="modal-footer">

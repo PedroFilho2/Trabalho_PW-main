@@ -23,8 +23,7 @@
   <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <i class="bi bi-plus-circle"></i> Adicionar nova notícia
   </button>
-
- 
+  
     </thead>
     <tbody>
     <div class="row">
