@@ -23,7 +23,7 @@
   <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <i class="bi bi-plus-circle"></i> Adicionar nova notícia
   </button>
-  
+
     </thead>
     <tbody>
     <div class="row">
@@ -65,7 +65,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Nova Notícia</h5>
+            <h5 class="modal-title">Nova N</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
